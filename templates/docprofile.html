@@ -1,0 +1,289 @@
+<!doctype html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - College Administro</title>
+        {% else %}
+        <title>Welcome to Dayananda Sagar College of Engineering</title>
+        {% endif %}
+        <link rel="shortcut icon" href="{{url_for('static', filename='d.ico')}}"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="docprofile.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<style>div.someclass {
+background-size: cover;
+margin: 0;
+    padding: 0;
+    background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url("images/cx-insight-YloghyfD7e8-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+</style>
+
+<style>body
+    {
+        margin: 0;
+        padding: 0;
+        background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url("{{url_for('static', filename='cx-insight-YloghyfD7e8-unsplash.jpg')}}");
+        background-size: cover;
+        background-position: center;
+        font-family: sans-serif;
+    }
+    .loginbox, .signupbox
+    {
+        width: 310px;
+        height: 420px;
+        font-family: sans-serif;
+        background: linear-gradient(#F4D03F,#add8e6);
+        color: #fff;
+        top:50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        box-sizing: border-box;
+        box-shadow: 0 0 40px 20px rgba(224,255,255,0.26);
+        padding: 70px 30px;
+        backface-visibility: hidden;
+        margin-top: 40px;
+    }
+    .signupbox
+    {
+        transform: rotateY(180deg);
+    }
+    .user
+    {
+        width: 100px;
+        height:100 px;
+        border-radius: 50%;
+        position: absolute;
+        top:-50px;
+        left: calc(50% - 50px);
+    }
+    h1
+    {
+        margin: 0;
+        padding: 0 0 20px;
+        text-align: center;
+        font-size: 22px;
+        color: #0000ff;
+        border-color:antiquewhite;
+    }
+    .loginbox label
+    {
+        margin:0;
+        padding: 0;
+        font-weight: 550;
+        color:#0000ff;
+        font-size: 17px;
+    }
+    .loginbox input
+    {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .input-box
+    {
+        border: none;
+        border-bottom: 1px solid #fff;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color:#0000ff ;
+        font-size: 16px;
+    }
+    .loginbox button
+    {
+        border: none;
+        outline: none;
+        height: 40px;
+        background:#1e90ff;
+        color:#0000ff;
+        font-weight:bold;
+        font-size: 18px;
+        padding: 0px 20px 0px 20px;
+        margin: 0px 0px 20px 0px;
+        border-radius: 20px;
+        width: 100%;
+    }
+    .loginbox button:hover
+    {
+        cursor: pointer;
+        background:#00ff7e;
+        color:#0000ff;
+    }
+    .loginbox a
+    {
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 20px;
+       font-style: italic;
+        color:#0000ff ;
+    }
+    .loginbox a:hover{
+        color: #000080;
+    }
+    /* .fixed-header{
+        width: 100%;
+        position: fixed;        
+        background: #2874A6;
+        padding: 10px 0;
+        color: #fff;
+    }
+    .fixed-header{
+        top: 0;
+    }
+    .container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    /* }
+    nav a{
+        color: #fff;
+        text-decoration: none;
+        padding: 7px 25px;
+        display: inline-block;
+    } */
+    .card {
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+      }
+      
+      /* On mouse-over, add a deeper shadow */
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      
+      /* Add some padding inside the card container */
+      .container {
+        padding: 2px 16px;
+      }</style>
+  
+<link rel="stylesheet" href="login.css">
+
+    </head>
+   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2874A6;">
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <a class="navbar-brand" href="/">College Administro</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Documents <span class="sr-only">(current)</span></a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/student"">Raise Ticket</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('notifications')}}">notifications</a>
+      </li>
+      </ul>
+
+
+      <ul class="navbar-nav ml-auto">
+
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Hi, {{ session['username']}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{url_for('logout')}}">logout</a>
+    </li>
+    </ul>
+
+  </div>
+
+</nav>
+
+<div class="container-fluid">
+    <center>
+      <div class="card text-left mt-3" style="width: 35rem">
+        <div class="card-body">
+          <form class="form-group" action="{{url_for('index')}}" method="POST">
+
+            <div class="card">
+                <center><h4><b>Marksheet</b></h4></center>
+                <img src="{{url_for('static', filename='Checklist.jpg')}}" alt="Avatar" style="height:width:10%">
+                <div class="container">
+                    <center>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">View </button>
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        Download
+                      </button>
+                    </center>
+                    <br>
+                </div>
+                </div>
+              </div>
+
+              <div class="card-body">
+              <div class="card">
+                <center><h4><b>Bonafide Certificate</b></h4></center>
+                <img src="{{url_for('static', filename='28510.jpg')}}" alt="Avatar" style="height:width:10%">
+                <div class="container">
+                    <br>
+                    <center>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">View </button>
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                            Download
+                          </button>
+                        </center>
+                    <br>
+                </div>
+              </div>
+            </div>
+
+              <div class="card-body">
+              <div class="card">
+                <center><h4><b>Fee Receipt</b></h4></center>
+                <img src="{{url_for('static', filename='43716.jpg')}}" alt="Avatar" style="height:width:10%">
+                <div class="container">
+                    <br>
+                    <center>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">View </button>
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                            Download
+                          </button>
+                          <br>
+                        </center>
+                        <br>
+                </div>
+              </div>
+              <br/>
+          </form>
+        </div>
+      </div>
+    </center>
+  </div>
+ <!-- <section>
+            <div class="card">
+                <img src="{{url_for('static', filename='28510.jpg')}}" alt="Avatar" style="height:width:10%">
+                <div class="container">
+                  <h4><b>Marksheet</b></h4>
+                </div>
+              </div>
+            <div class="col-md-3">
+                <div class="gallery-box">
+                    <img src="{{url_for('static', filename='43716.jpg')}}" alt="Avatar" style="height:width:10%">
+                    <h4>Bonafide</h4>
+                    </div>
+            </div> 
+            <div class="col-md-3">
+                <div class="gallery-box">
+            <img src="images/Checklist.jpg">
+                <h4>Fee Reciept</h4>
+                    </div>
+                </div> 
+
+    </section> -->
+   </body>
+</html>
+
+

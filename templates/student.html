@@ -1,0 +1,220 @@
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - College Administro</title>
+    {% else %}
+    <title>Welcome to Dayananda Sagar College of Engineering</title>
+    {% endif %}
+    <link rel="shortcut icon" href="{{url_for('static', filename='d.ico')}}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="docprofile.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <style>body
+    {
+        margin: 0;
+        padding: 0;
+        background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url("{{url_for('static', filename='cx-insight-YloghyfD7e8-unsplash.jpg')}}");
+        background-size: cover;
+        background-position: center;
+        font-family: sans-serif;
+    }
+    .loginbox, .signupbox
+    {
+        width: 310px;
+        height: 420px;
+        font-family: sans-serif;
+        background: linear-gradient(#F4D03F,#add8e6);
+        color: #fff;
+        top:50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        box-sizing: border-box;
+        box-shadow: 0 0 40px 20px rgba(224,255,255,0.26);
+        padding: 70px 30px;
+        backface-visibility: hidden;
+        margin-top: 40px;
+    }
+    .signupbox
+    {
+        transform: rotateY(180deg);
+    }
+    .user
+    {
+        width: 100px;
+        height:100 px;
+        border-radius: 50%;
+        position: absolute;
+        top:-50px;
+        left: calc(50% - 50px);
+    }
+    h1
+    {
+        margin: 0;
+        padding: 0 0 20px;
+        text-align: center;
+        font-size: 22px;
+        color: #0000ff;
+        border-color:antiquewhite;
+    }
+    .loginbox label
+    {
+        margin:0;
+        padding: 0;
+        font-weight: 550;
+        color:#0000ff;
+        font-size: 17px;
+    }
+    .loginbox input
+    {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .input-box
+    {
+        border: none;
+        border-bottom: 1px solid #fff;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        color:#0000ff ;
+        font-size: 16px;
+    }
+    .loginbox button
+    {
+        border: none;
+        outline: none;
+        height: 40px;
+        background:#1e90ff;
+        color:#0000ff;
+        font-weight:bold;
+        font-size: 18px;
+        padding: 0px 20px 0px 20px;
+        margin: 0px 0px 20px 0px;
+        border-radius: 20px;
+        width: 100%;
+    }
+    .loginbox button:hover
+    {
+        cursor: pointer;
+        background:#00ff7e;
+        color:#0000ff;
+    }
+    .loginbox a
+    {
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 20px;
+       font-style: italic;
+        color:#0000ff ;
+    }
+    .loginbox a:hover{
+        color: #000080;
+    }
+    /* .fixed-header{
+        width: 100%;
+        position: fixed;        
+        background: #2874A6;
+        padding: 10px 0;
+        color: #fff;
+    }
+    .fixed-header{
+        top: 0;
+    }
+    .container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    /* }
+    nav a{
+        color: #fff;
+        text-decoration: none;
+        padding: 7px 25px;
+        display: inline-block;
+    } */ </style>
+  </head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2874A6;">
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <a class="navbar-brand" href="/">College Administro</a>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="/docs">Documents <span class="sr-only">(current)</span></a>
+    </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/student">Raise Ticket</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url_for('notifications')}}">notifications</a>
+  </li>
+  </ul>
+
+
+  <ul class="navbar-nav ml-auto">
+
+<li class="nav-item">
+  <a class="nav-link" href="#"> Hi, {{ session['username']}}</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{{url_for('logout')}}">logout</a>
+</li>
+</ul>
+
+</div>
+
+</nav>
+
+    <form action="{{url_for('addre')}}" method="POST">
+        <h3>Ticket details</h3>
+        <input type="text" name="usn" placeholder=" USN"/><br>
+        <input type="text" name="doc" placeholder="Document Required"/><br>
+       <textarea type="text" name="desc" rows=5 cols=50 placeholder="Description"></textarea><br>
+       <input type="submit">
+       <br>
+    </form>
+</body>    
+</html>
+
+<!-- <div class="container-fluid">
+    <center>
+      <div class="card text-left mt-3" style="width: 35rem">
+        <div class="card-body">
+            <h3>Student Information</h3>
+          <form class="form-group" action="{{url_for('addre')}}" method="POST">
+            <label for="sel" name="doc"> Select document:</label>
+            <select
+              name="type"
+              class="form-control"
+              id="exampleFormControlSelect1"
+              required
+            >
+              <option value="doc" name="doc">Documents</option>
+              <option value="doc" name="doc">Bonafide Certificate</option>
+              <option value="doc" name="doc">Marksheet</option>
+              <option value="doc" name="doc">Fee Receipt</option>
+              <option value="doc" >Others</option>
+            </select>
+              <br/>
+              <textarea name="" id="" cols="62" rows="3" placeholder="desc" required></textarea>
+           
+            <br/> 
+            <center>
+              <br/> 
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                Submit
+              </button>
+             
+            </center>
+          </form>
+        </div>
+      </div>
+    </center>
+  </div>
+   -->
